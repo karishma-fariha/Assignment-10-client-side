@@ -1,6 +1,9 @@
 import React from 'react';
 import ThemeToggle from './ThemeToggle';
 import { NavLink } from 'react-router';
+import { ImHome } from 'react-icons/im';
+import { FcHome } from 'react-icons/fc';
+import home from '../assets/icons8-home-64.png'
 
 const Navbar = () => {
     return (
@@ -20,9 +23,19 @@ const Navbar = () => {
                         <NavLink to='/'>My Ratings</NavLink>
                     </ul>
                 </div>
-                <a className="btn btn-ghost text-xl">HomeNest</a>
+                <div className="flex items-center justify-center gap-1">
+                   
+                            <img
+                            className='w-10 h-10' 
+                            src={home} alt="" />
+
+                    <a className=" text-2xl font-bold ">
+                        Home<span className='text-primary'>Nest</span></a>
+
+
+                </div>
             </div>
-            <div className="hidden navbar-center md:flex gap-5">
+            <div className="hidden navbar-center lg:flex gap-5">
                 <ul className="">
                     <NavLink to='/'>Home</NavLink>
                     <NavLink to='/'>All Properties</NavLink>
@@ -31,7 +44,7 @@ const Navbar = () => {
                     <NavLink to='/'>My Ratings</NavLink>
                 </ul>
             </div>
-            <div className="navbar-end">
+            <div className="navbar-end gap-4">
                 <a className="btn btn-primary">Login</a>
                 <a className="btn btn-accent">Logout</a>
                 <ThemeToggle></ThemeToggle>
