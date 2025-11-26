@@ -5,6 +5,10 @@ import AllProperties from "../Pages/AllProperties";
 import AddProperties from "../Pages/AddProperties";
 import MyProperties from "../Pages/MyProperties";
 import MyRatings from "../Pages/MyRatings";
+import AuthLayout from "../Layouts/AuthLayout";
+import Login from "../Pages/Login";
+import Register from "../Pages/Register";
+import Error from "../Pages/Error";
 
 const router = createBrowserRouter(
     [
@@ -37,8 +41,23 @@ const router = createBrowserRouter(
             ]
         },
         {
+            path:'/auth',
+            element:<AuthLayout></AuthLayout>,
+            children:[
+                 {
+                    path: "/auth/login",
+                    element: <Login></Login>
+                },
+                {
+                    path: "/auth/register",
+                    element: <Register></Register>
+                },
+                
+            ]
+        },
+        {
             path: '/*',
-            element: <div>Error 404</div>
+            element: <Error></Error>
         }
     ])
 export default router;

@@ -1,11 +1,27 @@
-import React from 'react';
+import React, { use } from 'react';
 import ThemeToggle from './ThemeToggle';
-import { NavLink } from 'react-router';
+import { Link, NavLink } from 'react-router';
 import { ImHome } from 'react-icons/im';
-import { FcHome } from 'react-icons/fc';
-import home from '../assets/icons8-home-64.png'
+import home from '../assets/icons8-home-64.png';
+import { AuthContext } from '../Provider/AuthContext';
+import userImg from '../assets/user.png';
 
 const Navbar = () => {
+    const { user, logout } = use(AuthContext);
+
+
+    // log out
+    const handleLogout = () => {
+        // console.log('logout')
+        logout().then(() => {
+            // toast('You Logout Successfully..');
+            // Sign-out successful.
+        }).catch((error) => {
+            alert(error)
+            // toast(error);
+            // An error happened.
+        });;
+    }
     return (
         <div className="navbar bg-base-200 shadow-sm">
             <div className="navbar-start">
@@ -24,29 +40,33 @@ const Navbar = () => {
                     </ul>
                 </div>
                 <div className="flex items-center justify-center gap-1">
-
-                    <img
-                        className='w-10 h-10'
+                    <img className='md:w-10 md:h-10 w-7 h-7'
                         src={home} alt="" />
 
-                    <a className=" text-2xl font-bold ">
-                        Home<span className='text-primary'>Nest</span></a>
+                    <a className=" md:text-3xl text-xl font-bold "><span className='text-primary'>Home</span>Nest</a>
 
 
                 </div>
             </div>
             <div className="hidden navbar-center lg:flex gap-5">
-
                 <NavLink to='/'>Home</NavLink>
                 <NavLink to='/allProperties'>All Properties</NavLink>
                 <NavLink to='/addProperties'>Add Properties</NavLink>
                 <NavLink to='/myProperties'>My Properties</NavLink>
                 <NavLink to='/myRatings'>My Ratings</NavLink>
-
             </div>
-            <div className="navbar-end gap-4">
-                <a className="btn btn-primary">Login</a>
-                <a className="btn btn-accent">Logout</a>
+            <div className="navbar-end flex gap-3">
+                <img className='md:w-10 w-7 md:h-10 h-7 rounded-full' src={`${user ? user.photoURL : userImg}`} alt="" />
+                {user ?
+                    <button onClick={handleLogout} className='btn btn-primary md:px-14'>LogOut</button>
+                    :
+                    <div className="md:flex md:gap-4">
+                        <Link to="/auth/login" className='btn btn-primary md:px-14'>
+                            Login</Link>
+                        <Link to="/auth/register" className='btn border-2 border-primary hover:btn-primary md:px-14'>
+                            Registration</Link>
+                    </div>
+                }
                 <ThemeToggle></ThemeToggle>
             </div>
         </div>
