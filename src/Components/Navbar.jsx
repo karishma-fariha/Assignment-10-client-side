@@ -61,9 +61,9 @@ const Navbar = () => {
                     <button onClick={handleLogout} className='btn btn-primary md:px-14'>LogOut</button>
                     :
                     <div className="md:flex md:gap-4">
-                        <Link to="/auth/login" className='btn btn-primary md:px-14'>
+                        <Link to="/auth/login" className='btn btn-primary hover:btn-secondary md:px-14'>
                             Login</Link>
-                        <Link to="/auth/register" className='btn border-2 border-primary hover:btn-primary md:px-14'>
+                        <Link to="/auth/register" className='btn border-2 border-primary hover:btn-secondary md:px-14'>
                             Registration</Link>
                     </div>
                 }
