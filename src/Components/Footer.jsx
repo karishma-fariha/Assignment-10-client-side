@@ -6,7 +6,7 @@ import xmailImg from '../assets/fi_5969020.png';
 
 const Footer = () => {
     return (
-        <div className="bg-accent md:flex p-10 md:justify-between items-center">
+        <div className="bg-secondary md:flex p-10 md:justify-between items-center">
         <div className="flex gap-2 ">
             <img className='bg-white rounded-full w-10 h-10 text-white' src={home} alt="" />
            <div className="">

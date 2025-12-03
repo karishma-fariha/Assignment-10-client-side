@@ -3,6 +3,7 @@ import BannerSlider from '../Components/BannerSlider';
 import FeaturedEstates from '../Components/FeaturedEstates';
 import WhyChoose from '../Components/WhyChoose';
 import HowItWork from '../Components/HowItWork';
+import CityHighlights from '../Components/CityHighlights';
 
 const Home = () => {
     const [estates, setEstates] = useState([]);
@@ -29,6 +30,9 @@ const Home = () => {
              </section>
              <section>
                 <HowItWork></HowItWork>
+             </section>
+             <section>
+                <CityHighlights></CityHighlights>
              </section>
         </div>
     );
