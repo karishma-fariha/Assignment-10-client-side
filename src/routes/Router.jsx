@@ -10,6 +10,7 @@ import Login from "../Pages/Login";
 import Register from "../Pages/Register";
 import Error from "../Pages/Error";
 import PrivateRouter from "../Provider/PrivateRouter";
+import PropertyDetails from "../Pages/PropertyDetails";
 
 const router = createBrowserRouter(
     [
@@ -39,7 +40,9 @@ const router = createBrowserRouter(
                 },
                 {
                     path: '/myRatings',
-                    element: <MyRatings></MyRatings>
+                    element: <PrivateRouter>
+                        <MyRatings></MyRatings>
+                    </PrivateRouter>
                 },
 
 
@@ -59,6 +62,11 @@ const router = createBrowserRouter(
                 },
 
             ]
+        },
+        {
+            path:'/properties/:id',
+            element:<PropertyDetails></PropertyDetails>
+
         },
         {
             path: '/*',

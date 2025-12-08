@@ -3,10 +3,10 @@ import AllProperty from '../Components/AllProperty';
 import { Link } from 'react-router';
 
 const AllProperties = () => {
-    const [search,setSearch] = useState('');
+    const [search, setSearch] = useState('');
     const [estates, setEstates] = useState([]);
     useEffect(() => {
-        fetch(`http://localhost:3000/properties`)
+        fetch(`https://home-nest-server-side.vercel.app/properties`)
             .then(res => res.json())
             .then(data => setEstates(data))
             .catch(err => {
@@ -14,8 +14,8 @@ const AllProperties = () => {
             })
     }, []);
     const filteredEstates = estates.filter((estate) =>
-            estate.title?.toLowerCase().includes(search.toLowerCase())
-)
+        estate.title?.toLowerCase().includes(search.toLowerCase())
+    )
     return (
         <div className='mb-20'>
             <h1 className='text-5xl font-bold text-primary text-center p-3'>Our All Properties</h1>
@@ -36,15 +36,15 @@ const AllProperties = () => {
                         </g>
                     </svg>
                     <input type="search"
-                    value={search}
-                    onChange={(e)=>setSearch(e.target.value)}
-                     required 
-                     placeholder="Search by Property Name" />
+                        value={search}
+                        onChange={(e) => setSearch(e.target.value)}
+                        required
+                        placeholder="Search by Property Name" />
                 </label>
 
-              
+
             </div>
-            
+
             <AllProperty estates={filteredEstates}></AllProperty>
             <div className="flex items-center justify-center">
                 <Link to='/' className='btn btn-primary px-10'>Back to Home</Link>

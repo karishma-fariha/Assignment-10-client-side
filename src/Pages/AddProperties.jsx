@@ -6,7 +6,7 @@ const AddProperties = () => {
   const { user } = useContext(AuthContext);
 
   const [formData, setFormData] = useState({
-    name: "",
+    title: "",
     description: "",
     category: "",
     price: "",
@@ -24,7 +24,7 @@ const AddProperties = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const res = await fetch("http://localhost:3000/properties", {
+    const res = await fetch("https://home-nest-server-side.vercel.app/properties", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(formData),
@@ -40,7 +40,7 @@ const AddProperties = () => {
       });
 
       setFormData({
-        name: "",
+        title: "",
         description: "",
         category: "",
         price: "",
@@ -58,9 +58,9 @@ const AddProperties = () => {
       <h2 className="text-3xl font-bold mb-6 text-center">Add New Property</h2>
 
       <form onSubmit={handleSubmit} className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        
+
         <input
-          name="name"
+          name="title"
           type="text"
           placeholder="Property Name"
           required

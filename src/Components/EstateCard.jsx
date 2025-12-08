@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router';
 
 const EstateCard = ({estate}) => {
-     const { image, title, location, price, category, short_description, id } = estate;
+     const { image, title, location, price, category, short_description, _id } = estate;
  
     return (
         <div className="shadow-lg p-4 flex flex-col">
@@ -22,7 +22,7 @@ const EstateCard = ({estate}) => {
       <span className="badge badge-secondary mt-2">{category}</span>
 
       <Link 
-        to={`/details/${id}`} 
+        to={`/properties/${_id}`} 
         className="btn btn-primary mt-4 hover:btn-secondary"
       >
         View Details

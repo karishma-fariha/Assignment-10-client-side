@@ -1,24 +1,24 @@
 import React, { useState } from 'react';
-import { toast } from 'react-toastify';
+import { Link } from 'react-router';
 import Swal from 'sweetalert2';
 
 const UpdateProperty = ({ property, onClose, onUpdated }) => {
 
-    const [formData, setFormData] = useState({
-        name: property.name,
-        description: property.description,
-        category: property.category,
-        price: property.price,
-        location: property.location,
-        image: property.image
-    });
+  const [formData, setFormData] = useState({
+    name: property.name,
+    description: property.description,
+    category: property.category,
+    price: property.price,
+    location: property.location,
+    image: property.image
+  });
 
-    const handleChange = (e) => {
+  const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-    const handleUpdate = async () => {
-    const res = await fetch(`http://localhost:3000/properties/${property._id}`, {
+  const handleUpdate = async () => {
+    const res = await fetch(`https://home-nest-server-side.vercel.app/properties/${property._id}`, {
       method: "PATCH",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(formData),
@@ -34,9 +34,9 @@ const UpdateProperty = ({ property, onClose, onUpdated }) => {
         timer: 1500,
         showConfirmButton: false,
       });
-            onUpdated({ ...property, ...formData });
+      onUpdated({ ...property, ...formData });
 
-      onClose(); // close modal
+      onClose();
     } else {
       Swal.fire({
         icon: "error",
@@ -45,13 +45,13 @@ const UpdateProperty = ({ property, onClose, onUpdated }) => {
       });
     }
 
-    }
+  }
 
-    return (
-         <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
+  return (
+    <div className="fixed inset-0 bg-base-200 bg-opacity-50 flex justify-center items-center z-50">
 
       <div className="bg-white rounded-lg p-6 w-96 shadow-lg">
-        <h2 className="text-xl font-bold mb-4">Update Property</h2>
+        <h2 className="text-xl font-bold mb-4 text-center text-primary">Update Property</h2>
 
         {/* Property Inputs */}
         <input
@@ -107,11 +107,22 @@ const UpdateProperty = ({ property, onClose, onUpdated }) => {
           onChange={handleChange}
           placeholder="Image URL"
         />
+        <input
+          className="input input-bordered w-full mb-4"
+          name="user"
+          value={property.userEmail}
+          readOnly
+          placeholder="Image URL"
+        />
+        <input
+          className="input input-bordered w-full mb-4"
+          name="image"
+          value={property.userName}
+          readOnly
+          placeholder="Image URL"
+        />
 
-        {/* Read only user info */}
-        <p className="text-gray-500 mb-4">
-          User: <strong>{property.userName}</strong> ({property.userEmail})
-        </p>
+
 
         {/* Buttons */}
         <div className="flex justify-end gap-2">
@@ -123,9 +134,13 @@ const UpdateProperty = ({ property, onClose, onUpdated }) => {
             Update
           </button>
         </div>
+        <Link to='/' className='btn btn-primary px-10 w-full m-4'>Back to Home</Link>
       </div>
+
+
+
     </div>
-    );
+  );
 };
 
 

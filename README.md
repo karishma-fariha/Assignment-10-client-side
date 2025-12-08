@@ -1,16 +1,65 @@
-# React + Vite
+🏡 HomeNest — Real Estate Property Marketplace
+  
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+📌 About HomeNest
 
-Currently, two official plugins are available:
+HomeNest is a modern real-estate platform where users can explore properties, add their own listings, manage posts, and leave ratings & reviews. The platform ensures a smooth user experience with secure authentication and dynamic property management features.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+🌟 Features
 
-## React Compiler
+🔐 User Authentication using Firebase (login, registration, private routes)
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+🏠 Latest Properties on Home Page (auto sorting by creation date)
 
-## Expanding the ESLint configuration
+📋 All Properties Page showing every available real estate listing
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+👤 My Properties Page where users can manage, update, or delete their own posts
+
+✏️ Update Property with Modal — quick in-place updates without page reload
+
+⭐ Ratings & Reviews System to review any property
+
+📄 Property Details Page with full information and reviewer feedback
+
+🚀 MongoDB Atlas Database + Express API for CRUD operations
+
+💻 Fully responsive UI, built with React + Tailwind CSS
+
+🛠️ Technologies Used
+
+React.js
+
+Firebase Authentication
+
+MongoDB Atlas
+
+Express.js (Backend REST API)
+
+Node.js
+
+Tailwind CSS / DaisyUI
+
+React Router DOM
+
+🚀 Getting Started (Local Setup)
+1️⃣ Clone the repository
+git clone https://github.com/your-repo/homenest.git
+cd homenest
+
+2️⃣ Install dependencies
+npm install
+
+3️⃣ Create .env file in Backend
+DB_USER=yourUser
+DB_PASS=yourPassword
+JWT_SECRET=yourSecret
+
+4️⃣ Start Backend
+npm run server
+
+5️⃣ Start Client
+npm run dev
+
+📄 License
+
+This project is open-source and free to use.

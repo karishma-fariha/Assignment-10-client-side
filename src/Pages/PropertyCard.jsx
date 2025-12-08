@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router";
 import Swal from "sweetalert2";
 
 const PropertyCard = ({ property, onDeleteSuccess, onUpdateClick }) => {
@@ -15,7 +16,7 @@ const PropertyCard = ({ property, onDeleteSuccess, onUpdateClick }) => {
 
     if (!confirm.isConfirmed) return;
 
-    const res = await fetch(`http://localhost:3000/properties/${_id}`, {
+    const res = await fetch(`https://home-nest-server-side.vercel.app/properties/${_id}`, {
       method: "DELETE",
     });
 
@@ -28,9 +29,9 @@ const PropertyCard = ({ property, onDeleteSuccess, onUpdateClick }) => {
   };
 
   return (
-    <div className="border rounded-xl shadow-sm p-4 bg-white">
-      
-      <img src={image} className="w-full h-48 object-cover rounded-lg" alt="" />
+    <div className="rounded-xl shadow-sm p-4 bg-base-200">
+
+      <img src={image} className="w-full h-48 object-cover" alt="" />
 
       <h2 className="text-xl font-bold mt-2">{name}</h2>
       <p className="text-sm text-gray-500">{category}</p>
@@ -50,9 +51,9 @@ const PropertyCard = ({ property, onDeleteSuccess, onUpdateClick }) => {
           Delete
         </button>
 
-        <a href={`/details/${_id}`} className="btn btn-sm btn-info">
+        <Link to={`/properties/${_id}`} className="btn btn-sm btn-info">
           View Details
-        </a>
+        </Link>
       </div>
     </div>
   );

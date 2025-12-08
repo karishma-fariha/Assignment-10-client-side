@@ -8,7 +8,7 @@ import CityHighlights from '../Components/CityHighlights';
 const Home = () => {
     const [estates, setEstates] = useState([]);
     useEffect(() => {
-        fetch(`http://localhost:3000/properties/home`)
+        fetch(`https://home-nest-server-side.vercel.app/properties/home`)
             .then(res => res.json())
             .then(data => setEstates(data))
             .catch(err => {
@@ -21,19 +21,20 @@ const Home = () => {
             <section>
                 <BannerSlider></BannerSlider>
             </section>
-             <section className='p-10'>
+            <section className='p-10'>
                 <h1 className="text-center text-5xl font-bold mb-6 text-primary">Featured Real Estate</h1>
                 <FeaturedEstates estates={estates}></FeaturedEstates>
-             </section>
-             <section>
+            </section>
+            <section>
                 <WhyChoose></WhyChoose>
-             </section>
-             <section>
+            </section>
+            <section>
                 <HowItWork></HowItWork>
-             </section>
-             <section>
+            </section>
+            <section>
                 <CityHighlights></CityHighlights>
-             </section>
+            </section>
+
         </div>
     );
 };
